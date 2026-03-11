@@ -67,30 +67,30 @@ h2 {
     padding-bottom: 16px;
 }
 h2::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: currentColor;
-  opacity: 0.4;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
 }
 
 h2::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
     /* 水平置中 */
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 1px;
-  background: currentColor;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: currentColor;
 }
 section {
-    padding-block: clamp(40px, 8vw, 120px);
+    padding-block: clamp(40px, 7vw, 70px);
 }
 .container {
     max-width: 1200px;
@@ -550,7 +550,7 @@ header menu.none {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     transition: 0.3s;
 }
-.serviceCard p{
+.serviceCard p {
     text-align: center;
 }
 .serviceCard:hover {
@@ -601,7 +601,7 @@ header menu.none {
     background-color: var(--standardblue--);
     color: var(--textWhite--);
 }
-#service .flex p{
+#service .flex p {
     margin-top: clamp(1.5em, 4vw, 2em);
     text-align: center;
 }
@@ -652,18 +652,18 @@ header menu.none {
     margin-top: 0.5em;
     position: relative;
 }
-#hot .flex p{
+#hot .flex p {
     margin-top: clamp(1.5em, 4vw, 2em);
     margin-bottom: clamp(1.5em, 4vw, 2em);
     text-align: center;
 }
 #hot .flex a h3::after {
-    content: "";
+    content: '';
     display: block;
-    width: 50%; 
-    height: 1px; 
-    background-color: currentColor; 
-    margin: 0.5em auto 0; 
+    width: 50%;
+    height: 1px;
+    background-color: currentColor;
+    margin: 0.5em auto 0;
     border-radius: 1px;
 }
 /* ==============================video設計================================== */
@@ -689,17 +689,17 @@ header menu.none {
 #link {
     color: var(--lightGray--);
 }
-#link .flex{
+#link .flex {
     gap: clamp(3em, 5vw, 4em);
 }
 
 #link .flex .banner h2::after {
     background: var(--lightGray--);
 }
-#link .flex .banner p{
+#link .flex .banner p {
     text-align: center;
     margin: 2em auto;
-    width: clamp(20em,60vw,30em);
+    width: clamp(20em, 60vw, 30em);
 }
 #link .flex .item {
     position: relative;
@@ -708,7 +708,7 @@ header menu.none {
 }
 #link .flex .item img {
     width: 100%;
-    aspect-ratio: 1 / 1;   /* 強制 1:1 */
+    aspect-ratio: 1 / 1; /* 強制 1:1 */
     object-fit: cover;
     display: block;
 }
@@ -720,9 +720,9 @@ header menu.none {
     left: 0;
     display: flex;
     flex-wrap: wrap;
-     flex-direction: column;   /* 垂直排列 */
-    align-items:center;       /* 水平置中 */
-    justify-content:center;
+    flex-direction: column; /* 垂直排列 */
+    align-items: center; /* 水平置中 */
+    justify-content: center;
     padding: 10px;
     background-color: var(--alphaBlack--);
     backdrop-filter: blur(10px);
@@ -730,9 +730,7 @@ header menu.none {
     color: var(--textWhite--);
 }
 #link .flex .item .box h3,
-#link .flex .item .box .btn-line{
-
-
+#link .flex .item .box .btn-line {
 }
 /* ===========contact設計========== */
 #contact {
@@ -1001,8 +999,8 @@ footer p {
         width: calc(100% / 12 * 12);
     }
     .container {
-    padding-inline: 0;
-}
+        padding-inline: 0;
+    }
 
     #slide .theme .item {
         gap: 30px; /* 元素間距更寬鬆 */
@@ -1025,7 +1023,7 @@ footer p {
         max-width: var(--slogan-max-width-md--);
     }
     /* ==========service設計======== */
-    
+
     #service .flex .grid-6 {
         overflow: hidden;
         cursor: pointer;
@@ -1068,14 +1066,13 @@ footer p {
     text-align: center;
     margin-bottom: 30px;
     letter-spacing: 0.05em;
-    
 }
-.resume-container h2::after{
+.resume-container h2::after {
     width: 50%;
     left: 50%;
     transform: translateX(-50%);
 }
-.resume-container h2::before{
+.resume-container h2::before {
     display: none;
 }
 
