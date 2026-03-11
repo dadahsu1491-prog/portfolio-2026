@@ -669,21 +669,40 @@ header menu.none {
 /* ==============================video設計================================== */
 #video {
     width: 100%;
-    height: 30vh;
+    height: auto;
     background-image: url(../images/slide-5.jpg);
     background-size: cover;
     background-position: center;
+  position: relative; /* 為後續遮罩定位 */
 }
-#video .grid-12 {
-    align-items: center;
+
+#video::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
     background-color: #264a9dae;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     border-radius: 16px 0 0 16px;
-    color: var(--textWhite--);
-    padding: clamp(20px, 5vw, 30px);
-    line-height: 2em;
+    z-index: 1;
 }
+
+#video .grid-12 {
+    position: relative;
+    z-index: 2; /* 文字置於遮罩上 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(20px, 5vw, 30px);
+    color: var(--textWhite--);
+    line-height: 2em;
+
+    border-radius: 16px 0 0 16px; /* 跟遮罩一樣的圓角 */
+}
+
+
 /* =========================link設計========================== */
 
 #link {
