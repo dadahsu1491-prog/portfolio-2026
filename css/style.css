@@ -294,7 +294,8 @@ header menu ul li a {
 header #logo .flex img {
     /* width: var(--logo-width-mobile--); */
     height: 60px;
-    /* padding: 8px; */
+    padding: 2px;
+    align-items: start;
     max-width: var(--logo-max-width-mobile--);
     /* position: absolute;
     top: 10px;
@@ -372,7 +373,7 @@ header menu.none {
 /* ===================slide 設計========================= */
 #slide {
     width: 100%;
-    height: var(--slide-height-mobile--);
+    height: 70vh;
     position: relative;
 }
 #slide .box {
@@ -436,17 +437,18 @@ header menu.none {
 }
 /* logo symbol */
 #slide .theme .flex-column img:nth-of-type(1) {
-    width: 25%; /* 父容器的 25% 寬度 */
-    max-width: var(--logo-max-width-md--); /* 手機最大寬度 */
+    width: 20%; /* 父容器的 25% 寬度 */
+    max-width: 30%; /* 手機最大寬度 */
     height: auto; /* 保持比例 */
     opacity: 0;
+    margin-top: 3em;
     animation: fadeIn 1.5s ease forwards;
     animation-delay: 0.5s;
     transform: translateY(-20px);
 }
 /* logo type */
 #slide .theme .flex-column img:nth-of-type(2) {
-    width: 40%; /* 父容器的 40% 寬度 */
+    width: 30%; /* 父容器的 40% 寬度 */
     max-width: var(--logoType-max-width--); /* 手機最大寬度 */
     height: auto; /* 保持比例 */
     opacity: 0;
@@ -456,7 +458,7 @@ header menu.none {
 }
 /* slogan */
 #slide .theme .flex-column img:nth-of-type(3) {
-    width: 70%; /* 父容器的 70% 寬度 */
+    width: 60%; /* 父容器的 70% 寬度 */
     max-width: var(--slogan-max-width-mobile--); /*手機最大寬度*/
     height: auto; /* 保持比例 */
     opacity: 0;
@@ -551,7 +553,9 @@ header menu.none {
     transition: 0.3s;
 }
 .serviceCard p {
+    margin-top: 0.5em;
     text-align: center;
+    position: relative;
 }
 .serviceCard:hover {
     transform: translateY(-5px);
@@ -565,19 +569,26 @@ header menu.none {
 .iconTittle {
     background: var(--standardblue--);
     box-shadow: 0 7px 10px rgba(0, 0, 0, 0.1);
-    width: 50%;
-    margin: 0 auto 20px;
-    border-radius: 999px; /* 圓形 */
-    display: flex;
-    flex-wrap: nowrap;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5em;
+
+    padding: 0.45em 1.2em;
+
+    font-weight: 600;
+    letter-spacing: 0.05em;
+
+    background: linear-gradient(135deg, #669bd1, var(--standardblue--));
+    color: #fff;
+
+    border-radius: 999px;
 }
 .iconTittle i {
-    font-size: clamp(1.2em, 3vw, 1.6em);
+    font-size: clamp(1.3em, 5vw, 1.5em);
     color: var(--textWhite--);
     opacity: 0.7;
 }
+
 .iconTittle i,
 .iconTittle h3 {
     flex-shrink: 0;
@@ -593,12 +604,13 @@ header menu.none {
 #service .container > .flex {
     border-radius: 24px;
     overflow: hidden;
+    background: linear-gradient(135deg, #4883be, var(--standardblue--));
 }
 
 #service .flex .banner {
     text-align: center;
     padding: 30px 20px;
-    background-color: var(--standardblue--);
+
     color: var(--textWhite--);
 }
 #service .flex p {
@@ -613,7 +625,7 @@ header menu.none {
 }
 
 #service .flex .grid-6:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: 0 18px 30px rgba(0, 0, 0, 0.15);
 }
 #service .flex .grid-6 h3 {
@@ -673,13 +685,14 @@ header menu.none {
     background-image: url(../images/slide-5.jpg);
     background-size: cover;
     background-position: center;
-  position: relative; /* 為後續遮罩定位 */
+    position: relative; /* 為後續遮罩定位 */
 }
 
 #video::before {
-    content: "";
+    content: '';
     position: absolute;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: #264a9dae;
@@ -701,7 +714,6 @@ header menu.none {
 
     border-radius: 16px 0 0 16px; /* 跟遮罩一樣的圓角 */
 }
-
 
 /* =========================link設計========================== */
 
@@ -845,6 +857,9 @@ footer p {
     }
     .grid-sm-12 {
         width: calc(100% / 12 * 12);
+    }
+    #header {
+        height: 30vh;
     }
 }
 /* 平板 微調 grid + logo 在左 + menu 展開 */
@@ -1021,25 +1036,28 @@ footer p {
         padding-inline: 0;
     }
 
-    #slide .theme .item {
-        gap: 30px; /* 元素間距更寬鬆 */
+    #slide .theme .flex-column {
+        gap: 15px; /* 元素間距更寬鬆 */
     }
     /* =========header設計============ */
     header menu ul li a {
         padding: 0 1em;
     }
     #slide .theme .flex-column img:nth-of-type(1) {
-        width: 9%; /*父容器比例縮小*/
+        width: 5%; /*父容器比例縮小*/
     }
     #slide .theme .flex-column img:nth-of-type(2) {
-        width: 15%;
+        width: 10%;
         /* 父容器比例縮小 */
         max-width: 200px;
     }
     #slide .theme .flex-column img:nth-of-type(3) {
-        width: 30%;
+        width: 20%;
         /* 父容器比例縮小 */
         max-width: var(--slogan-max-width-md--);
+    }
+    #slide .theme .flex-column .btn-line {
+        transform: scale(0.8);
     }
     /* ==========service設計======== */
 
