@@ -326,7 +326,7 @@ header::before {
 }
 header menu ul li a {
     height: 60px;
-    /* line-height: 60px; */
+    line-height: 60px;
 }
 /* 手機 logo 做大小設定 */
 header #logo .flex img {
@@ -464,7 +464,7 @@ header menu.none {
 }
 /* logo symbol */
 #slide .theme .flex-column img:nth-of-type(1) {
-    width: clamp(10%, 8vw, 23%);
+    width: clamp(10%, 10vw, 24%);
     height: auto; /* 保持比例 */
     opacity: 0;
     margin-top: 3em;
@@ -474,7 +474,7 @@ header menu.none {
 }
 /* logo type */
 #slide .theme .flex-column img:nth-of-type(2) {
-    width: clamp(13%, 13vw, 35%);
+    width: clamp(17%, 15vw, 36%);
     height: auto; /* 保持比例 */
     opacity: 0;
     animation: fadeIn 1.8s ease forwards;
@@ -483,7 +483,7 @@ header menu.none {
 }
 /* slogan */
 #slide .theme .flex-column img:nth-of-type(3) {
-    width: clamp(50%, 25vw, 80%);
+    width: clamp(55%, 27vw, 82%);
     height: auto; /* 保持比例 */
     opacity: 0;
     animation: fadeIn 1.9s ease forwards;
@@ -596,6 +596,7 @@ header menu.none {
 #about .aboutSection {
     border-radius: 24px;
     overflow: hidden;
+    
 }
 #about .flex {
     width: 100%;
@@ -773,7 +774,7 @@ header menu.none {
     background-color: #264a9dae;
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    border-radius: 16px 0 0 16px;
+    border-rdius: 16px 0 0 16px;
     z-index: 1;
 }
 
@@ -786,10 +787,10 @@ header menu.none {
     padding: clamp(20px, 5vw, 30px);
     color: var(--textWhite--);
     line-height: 2em;
-
-    border-radius: 16px 0 0 16px; /* 跟遮罩一樣的圓角 */
 }
-
+#video .grid-12 h2{
+    padding: 0.7em 4em;
+}
 /* =========================link設計========================== */
 
 #link {
@@ -1028,7 +1029,7 @@ footer p {
 
     /* ==========================video=============================== */
     #video {
-        height: 40vh;
+
         justify-content: flex-end;
     }
     /* ==========================link設計============================== */
