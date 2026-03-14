@@ -93,8 +93,8 @@ section {
     padding-block: clamp(40px, 7vw, 70px);
 }
 .container {
-    max-width: 1200px;
-    margin: auto;
+    width: min(1200px, 95%);
+    margin-inline: auto;
     padding-inline: clamp(16px, 5vw, 32px);
 }
 /* ==============Variabkes全域顏色參數設定============== */
@@ -176,14 +176,15 @@ section {
     padding: 0.45rem 2rem; /* 上下固定、左右間距自適應 */
     min-width: 100px; /* 避免按鈕太小 */
     max-width: 300px; /* 避免按鈕太大 */
-    font-size: clamp(0.9rem, 2vw, 1.2rem); /* 文字隨螢幕縮放 */
-    font-weight: 500;
-    border-radius: 10px;
+    font-size: clamp(0.9rem, 2vw, 1rem); /* 文字隨螢幕縮放 */
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    border-radius: 999px;
     text-align: center; /* 文字置中 */
     white-space: nowrap; /* 避免文字換行 */
     cursor: pointer;
     transition: var(--transition--);
-    line-height: 1.7em; /* 文字與按鈕垂直置中 */
+    line-height: clamp(1.1rem, 3w, 1.3rem); /* 文字與按鈕垂直置中 */
 }
 
 /* 顏色區分 */
@@ -206,8 +207,11 @@ section {
 /* 透明按鈕 */
 .btn-line {
     background-color: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     color: var(--textWhite--);
     border: 2px solid #fff;
+    opacity: 0.8;
 }
 
 .btn-line:hover {
@@ -285,6 +289,40 @@ header {
     padding: 0 20px;
     position: relative;
     z-index: 10;
+    box-shadow: 0 2px 2px -2px rgba(251, 251, 251, 0.2);
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -1px;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.6) 0%,
+        rgba(255, 255, 255, 0.25) 40%,
+        rgba(255, 255, 255, 0) 70%
+    );
+
+    pointer-events: none;
+}
+header::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.5),
+        transparent
+    );
 }
 header menu ul li a {
     height: 60px;
@@ -423,22 +461,10 @@ header menu.none {
     top: 0;
     left: 0;
     z-index: 6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column; /* 改成上下排列 */
-}
-#slide .theme .flex-column {
-    width: 100%;
-    max-width: var(--slide-item-max-width--); /* 手機最大寬度 */
-    margin: 0 auto; /* 保證父元素水平置中 */
-    text-align: center; /* 文字置中 */
-    gap: var(--slide-item-gap--); /* logo、slogan、按鈕間距 */
 }
 /* logo symbol */
 #slide .theme .flex-column img:nth-of-type(1) {
-    width: 20%; /* 父容器的 25% 寬度 */
-    max-width: 30%; /* 手機最大寬度 */
+    width: clamp(10%, 8vw, 23%);
     height: auto; /* 保持比例 */
     opacity: 0;
     margin-top: 3em;
@@ -448,8 +474,7 @@ header menu.none {
 }
 /* logo type */
 #slide .theme .flex-column img:nth-of-type(2) {
-    width: 30%; /* 父容器的 40% 寬度 */
-    max-width: var(--logoType-max-width--); /* 手機最大寬度 */
+    width: clamp(13%, 13vw, 35%);
     height: auto; /* 保持比例 */
     opacity: 0;
     animation: fadeIn 1.8s ease forwards;
@@ -458,8 +483,7 @@ header menu.none {
 }
 /* slogan */
 #slide .theme .flex-column img:nth-of-type(3) {
-    width: 60%; /* 父容器的 70% 寬度 */
-    max-width: var(--slogan-max-width-mobile--); /*手機最大寬度*/
+    width: clamp(50%, 25vw, 80%);
     height: auto; /* 保持比例 */
     opacity: 0;
     animation: fadeIn 1.9s ease forwards;
@@ -515,7 +539,48 @@ header menu.none {
         z-index: 1;
     }
 } */
+#slide {
+    position: relative;
+}
 
+/* 細線 */
+#slide::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(38, 73, 157, 0.35),
+        transparent
+    );
+}
+
+/* 光暈 */
+#slide::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+
+    width: 55%;
+    height: 20px;
+
+    background: radial-gradient(
+        ellipse at center,
+        rgba(38, 73, 157, 0.9) 0%,
+        rgba(38, 73, 157, 0.45) 50%,
+        rgba(38, 73, 157, 0) 70%
+    );
+
+    filter: blur(8px);
+    pointer-events: none;
+}
 /* =============about 設計============= */
 #about {
     width: 100%;
@@ -623,22 +688,32 @@ header menu.none {
     transition: var(--transition--);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
-
 #service .flex .grid-6:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.15);
+    transform: translateY(-6px);
 }
+
 #service .flex .grid-6 h3 {
-    width: 100%;
-    height: 3em;
-    padding: 10px 0;
-    text-align: center;
-    color: var(--textWhite--);
-    font-weight: 600;
     position: absolute;
     left: 0;
     bottom: 0;
+    width: 100%;
+    height: 3.3em;
+    line-height: 3.3em;
+    text-align: center;
+    font-weight: 600;
+    color: var(--textWhite--);
+    /* 保留你的漸層 */
     background: linear-gradient(to top, #1b1b1bd2, rgba(0, 0, 0, 0));
+    /* 初始模糊 */
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    /* 漸變效果 */
+    transition: backdrop-filter 0.5s ease;
+}
+
+#service .flex .grid-6:hover h3 {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }
 /* #service .flex .banner p {
     height: 1.7em;
@@ -724,6 +799,9 @@ header menu.none {
     gap: clamp(3em, 5vw, 4em);
 }
 
+#link .flex .banner h2 {
+    font-size: clamp(1.2em, 8vw, 1.3em);
+}
 #link .flex .banner h2::after {
     background: var(--lightGray--);
 }
@@ -947,27 +1025,7 @@ footer p {
     header nav {
         display: none;
     }
-    /* ======================theme設計===================== */
-    #slide {
-        margin: auto;
-    }
-    #slide .theme .flex-column {
-        max-width: var(--max-width--); /* 父容器最大寬度 */
-    }
-    #slide .theme .flex-column img:nth-of-type(1) {
-        width: 10%; /*父容器比例縮小*/
-        max-width: 100px;
-    }
-    #slide .theme .flex-column img:nth-of-type(2) {
-        width: 16%;
-        /* 父容器比例縮小 */
-        max-width: 180px;
-    }
-    #slide .theme .flex-column img:nth-of-type(3) {
-        width: 30%;
-        /* 父容器比例縮小 */
-        max-width: var(--slogan-max-width-md--);
-    }
+
     /* ==========================video=============================== */
     #video {
         height: 40vh;
@@ -1032,9 +1090,6 @@ footer p {
     .grid-lg-12 {
         width: calc(100% / 12 * 12);
     }
-    .container {
-        padding-inline: 0;
-    }
 
     #slide .theme .flex-column {
         gap: 15px; /* 元素間距更寬鬆 */
@@ -1042,22 +1097,6 @@ footer p {
     /* =========header設計============ */
     header menu ul li a {
         padding: 0 1em;
-    }
-    #slide .theme .flex-column img:nth-of-type(1) {
-        width: 5%; /*父容器比例縮小*/
-    }
-    #slide .theme .flex-column img:nth-of-type(2) {
-        width: 10%;
-        /* 父容器比例縮小 */
-        max-width: 200px;
-    }
-    #slide .theme .flex-column img:nth-of-type(3) {
-        width: 20%;
-        /* 父容器比例縮小 */
-        max-width: var(--slogan-max-width-md--);
-    }
-    #slide .theme .flex-column .btn-line {
-        transform: scale(0.8);
     }
     /* ==========service設計======== */
 
