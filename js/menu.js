@@ -181,3 +181,60 @@ document.addEventListener('DOMContentLoaded', function () {
         tabLine.style.left = activeBtn.offsetLeft + 'px';
     });
 });
+// 小圖換大圖
+const artworks = document.querySelectorAll('.artwork');
+
+const lightbox = document.querySelector('.lightbox');
+const img = document.getElementById('lightboxImg');
+const title = document.getElementById('lightboxTitle');
+const desc = document.getElementById('lightboxDesc');
+
+const close = document.querySelector('.close');
+const prev = document.querySelector('.prev');
+const next = document.querySelector('.next');
+
+let currentIndex = 0;
+
+function showWork(index) {
+    const item = artworks[index];
+    img.src = item.dataset.img;
+    title.textContent = item.dataset.title;
+    desc.textContent = item.dataset.desc;
+}
+
+artworks.forEach((item, index) => {
+    item.addEventListener('click', (e) => {
+        e.preventDefault();
+        currentIndex = index;
+        showWork(index);
+        lightbox.style.display = 'flex';
+    });
+});
+
+close.onclick = () => (lightbox.style.display = 'none');
+
+lightbox.onclick = (e) => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+};
+
+next.onclick = () => {
+    currentIndex = (currentIndex + 1) % artworks.length;
+    showWork(currentIndex);
+};
+
+prev.onclick = () => {
+    currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+    showWork(currentIndex);
+};
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') lightbox.style.display = 'none';
+    if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex + 1) % artworks.length;
+        showWork(currentIndex);
+    }
+    if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex - 1 + artworks.length) % artworks.length;
+        showWork(currentIndex);
+    }
+});
