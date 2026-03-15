@@ -801,9 +801,6 @@ header menu.none {
     gap: clamp(3em, 5vw, 4em);
 }
 
-#link .flex .banner h2 {
-    font-size: clamp(1.2em, 8vw, 1.3em);
-}
 #link .flex .banner h2::after {
     background: var(--lightGray--);
 }
@@ -938,9 +935,7 @@ footer p {
     .grid-sm-12 {
         width: calc(100% / 12 * 12);
     }
-    #header {
-        height: 30vh;
-    }
+
 }
 /* 平板 微調 grid + logo 在左 + menu 展開 */
 @media only screen and (min-width: 744px) {
@@ -1006,7 +1001,8 @@ footer p {
         padding: 0;
     }
     header .symybol{
-        height: 80px;
+        height: 80px
+
     }
     header menu ul li a {
         height: 80px;
@@ -1030,6 +1026,9 @@ footer p {
     header nav {
         display: none;
     }
+        #slide .theme .flex-column {
+        gap: 15px; /* 元素間距更寬鬆 */
+    }
 
     /* ==========================video=============================== */
     #video {
@@ -1042,6 +1041,10 @@ footer p {
     #link .flex.wrap {
         flex-wrap: nowrap;
     }
+    #link .flex.wrap h2{
+        font-size: clamp(14px, 2.5vw, 30px);
+    }
+
     #link .flex .item {
         border-radius: 50%;
     }
