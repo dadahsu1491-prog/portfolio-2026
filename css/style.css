@@ -983,8 +983,8 @@ footer p {
     }
     /* 平板 header 設計 */
     header {
-        height: var(--header-height-md--);
-        line-height: var(--logo-height-md--);
+        height: 80px;
+        line-height: 80px;
         width: 100%;
         background-color: var(--standardblue--);
     }
@@ -1001,7 +1001,9 @@ footer p {
         padding: 0;
     }
     header .symybol{
-        height: 80px
+        height: 80px;
+        line-height: 80px;
+        
 
     }
     header menu ul li a {
