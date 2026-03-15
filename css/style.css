@@ -334,11 +334,7 @@ header #logo .flex img {
     height: 60px;
     padding: 2px;
     align-items: start;
-    max-width: var(--logo-max-width-mobile--);
-    /* position: absolute;
-    top: 10px;
-    left: 0;
-    margin-left: 20px; */
+
 }
 /* 漢堡選單設計 */
 header nav {
